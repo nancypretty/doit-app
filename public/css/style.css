@@ -1,0 +1,280 @@
+body {
+    font-family: 'Source Code Pro', monospace;
+    font-weight: 400;
+}
+
+/* User Authentication Page */
+.auth-page {
+    margin: 0;
+    height: 750px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.auth-logo {
+    position: relative;
+    z-index: 1;
+    top: 40px;
+}
+
+.auth-layout {
+    margin-bottom: 80px;
+    width: 450px;
+    height: 480px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border: 4px solid black;
+    border-radius: 30px;
+}
+
+.auth-main {
+    border: 2px solid black;
+    width: 380px;
+    height: 280px;
+    margin-top: 50px;
+}
+
+.auth-main .top {
+    display: flex;
+    flex-direction: row;
+    justify-items: stretch;
+    align-items: center;
+}
+
+.top p {
+    margin: 10px 0;
+    font-size: 20px;
+    font-weight: 600;
+}
+
+.top a {
+    text-decoration: none;
+}
+
+.login {
+    background-color: black;
+    width: 50%;
+}
+
+.login p {
+    color: white;
+}
+
+.register {
+    width: 50%;
+}
+
+.register p {
+    color: black;
+}
+
+.bottom, .bottom-register {
+    background-color: black;
+    padding-top: 40px;
+    height: 226px;
+}
+
+.bottom-register {
+    background-color: white;
+}
+
+.bottom input, .bottom-register input {
+    color: black;
+    background-color: white;
+    margin-bottom: 20px;
+    padding-left: 10px;
+    width: 320px;
+    height: 40px;
+}
+
+.bottom-register input {
+    color: white;
+    background-color: black;
+}
+
+.bottom button, .bottom-register button  {
+    position: relative;
+    left: 125px;
+    background-color: white;
+    color: black;
+    font-size: 12px;
+    font-weight: 700;
+    padding: 8px 10px;
+    border-radius: 10px;
+}
+
+.auth-page h4 {
+    margin: 20px 0;
+    font-weight: 600;
+    font-size: 14px;
+}
+
+
+.google-login {
+    width: 380px;
+    height: 40px;
+}
+
+.google-login p {
+    margin: 0;
+    text-align: center;
+}
+
+.fa-google {
+    margin: 0 10px;
+    padding-right: 12px;
+}
+
+footer p {
+    text-align: center;
+    font-size: 13px;
+}
+
+/* Main Page */
+
+.main-page {
+    margin: 0;
+    height: 750px;
+}
+
+.logout a {
+    text-decoration: none;
+    color: black;
+    font-size: 40px;
+    position: absolute;
+    top: 20px;
+    right: 30px;
+}
+
+/* ------------------ Todo ------------------- */
+
+.todos {
+    display: inline-block;
+    position: relative;
+    margin: 100px 0 0px 100px;
+    border: 2px solid black;
+    border-radius: 25px;
+    width: 500px;
+    min-height: 600px;
+    text-align: center;
+}
+
+.box {
+    position: relative;
+    bottom: 40px;
+}
+
+.box .list {
+    position: relative;
+    text-align: left;
+}
+
+.box .list input {
+    display: inline-block;
+    margin-left: 20px;
+    vertical-align: middle;
+}
+
+.box .list p {
+    margin: 0 0 0 10px;
+    max-width: 430px;
+    font-weight: 600;
+    font-size: 16px;
+    display: inline-block;
+    word-break: normal;
+    vertical-align: middle;
+}
+
+.add input {
+    border: none;
+    border-bottom: 1px solid black;
+    margin-top: 30px;
+    width: 350px;
+    height: 40px;
+}
+
+.todos-img, .notes-img {
+    position: relative;
+    bottom: 50px;
+    text-align: center;
+}
+
+/* ------------------ Notes ------------------- */
+
+.notes {
+    vertical-align: top;
+    display: inline-block;
+    position: relative;
+    top: 100px;
+    margin: 0 0 0 100px;
+    border: 2px solid black;
+    border-radius: 25px;
+    width: 900px;
+    max-height: 300px;
+}
+
+.notes a {
+    position: relative;
+    left: 830px;
+    bottom: 70px;
+}
+
+.notes-list {
+    margin-left: 30px;
+    width: 800px;
+    position: relative;
+    bottom: 60px;
+}
+
+.notes-list h1 {
+    font-size: 16px;
+    font-weight: 700;
+}
+
+.notes-list p {
+    font-size: 14px;
+    margin-bottom: 20px;
+}
+
+/* ------------------ Quotes ------------------- */
+
+.quotes {
+    background-color: black;
+    width: 400px;
+    height: 200px;
+    display: inline-block;
+    position: absolute;
+    top: 450px;
+    right: 595px;
+    border-radius: 20px;
+    text-align: center;
+}
+
+.quotes h4 {
+    position: relative;
+    width: 350px;
+    color: white;
+    font-size: 16px;
+    font-style: italic;
+}
+
+.quotes h6 {
+    color: white;
+}
+
+/* ------------------ Calendar ------------------- */
+
+.calendar {
+    background-color: grey;
+    width: 400px;
+    height: 200px;
+    display: inline-block;
+    position: absolute;
+    top: 450px;
+    right: 100px;
+    border-radius: 20px;
+}

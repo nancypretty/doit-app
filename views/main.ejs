@@ -1,0 +1,52 @@
+<%- include('partials/header') %>
+
+<div class="main-page">
+
+    <div class="logout">
+        <a href="/logout" role="button"><i class="fa-solid fa-right-from-bracket"></i></a>
+    </div>
+
+    <div class="todos">
+        <div class="todos-img">
+            <img src="/images/todo.png" alt="todo logo">
+        </div>
+        <div class="box">
+            <div class="list">
+                <input type="checkbox" name="checkbox" value="" onchange="">
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+            </div>
+
+            <form class="add" action="">
+                <input class="newtodo" type="text" name="newTodo" placeholder="add your todo here">
+                <button class="btn btn-dark" type="submit" name="addTodo" value="">+</button>
+            </form>
+        </div>
+    </div>
+
+
+    <div class="notes">
+        <div class="notes-img">
+            <img src="/images/notes.png" alt="notes logo">
+        </div>
+        <a class="btn btn-dark" href="/create" role="button">+</a>
+        <div class="notes-list">
+            <h1>Lorem ipsum dolor</h1>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+            <h1>Lorem ipsum dolor</h1>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+        </div>
+    </div>
+
+
+    <div class="quotes">
+        <h4> <%= quotes %> </h4>
+        <h6> - <%= author %> </h6>
+    </div>
+
+    <div class="calendar">
+
+    </div>
+
+</div>
+
+<%- include('partials/footer') %>
