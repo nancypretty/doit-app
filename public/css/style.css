@@ -20,6 +20,20 @@ body {
     top: 40px;
 }
 
+.alert {
+    position: absolute;
+    right: 420px;
+    top: 200px;
+    border: 1px solid black;
+    padding: 5px 5px;
+    display: none;
+}
+
+.alert h1 {
+    margin: 0;
+    font-size: 12px;
+}
+
 .auth-layout {
     margin-bottom: 80px;
     width: 450px;

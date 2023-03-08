@@ -1,12 +1,17 @@
 <%- include('partials/header') %>
 
     <div class="auth-page">
+        <p class="flash"> <%= message %> </p>
         <div class="auth-logo">
             <img src="/images/doit.png" alt="logo">
         </div>
+        <div class="alert">
+            <h1>
+                <i class="fa-solid fa-bell"></i>  Please register first!
+            </h1>
+        </div>
         <div class="auth-layout">
             <div class="auth-main">
-                <form action="/" method="post">
                     <div class="top">
                         <div class="login">
                             <a href="/" role="button"><p>LOGIN</p></a>
@@ -15,9 +20,9 @@
                             <a href="/register" role="button"><p>REGISTER</p></a>
                         </div>
                     </div>
-                    
+                <form action="/register" method="POST"> 
                     <div class="bottom-register">
-                        <input type="text" placeholder="username" name="username" autocomplete="off">
+                        <input type="text" placeholder="username or email" name="username" autocomplete="off">
                         <input type="password" placeholder="password" name="password">
                         <button type="submit"> LEGGO! </button>
                     </div>
