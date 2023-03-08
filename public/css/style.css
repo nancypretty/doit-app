@@ -3,7 +3,7 @@ body {
     font-weight: 400;
 }
 
-/* User Authentication Page */
+/**************** USER AUHTENTICATION PAGE *************/
 .auth-page {
     margin: 0;
     height: 750px;
@@ -134,7 +134,7 @@ footer p {
     font-size: 13px;
 }
 
-/* Main Page */
+/**************** MAIN PAGE *************/
 
 .main-page {
     margin: 0;
@@ -255,15 +255,23 @@ footer p {
 }
 
 .quotes h4 {
-    position: relative;
-    width: 350px;
+    width: 90%;
     color: white;
     font-size: 16px;
     font-style: italic;
+    position: relative;
+    top: 30%;
+    margin-left: 20px;
 }
 
 .quotes h6 {
+    position: relative;
+    top: 35%;
+    width: 90%;
     color: white;
+    margin-left: 20px;
+    font-size: 12px;
+    font-weight: 300;
 }
 
 /* ------------------ Calendar ------------------- */
@@ -277,4 +285,65 @@ footer p {
     top: 450px;
     right: 100px;
     border-radius: 20px;
+}
+
+/**************** CREATE PAGE *************/
+
+.create-page {
+    display: flex;
+    flex-direction: column;
+    height: 700px;
+    width: 95%;
+    border: 2px solid black;
+    margin: 50px 0 20px 42px;
+    justify-content: center;
+    align-items: center;
+}
+
+.create-img {
+    position: absolute;
+    left: 150px;
+    top: 10px;
+}
+
+.create-page .back {
+    position: relative;
+    right: 300px;
+    top: 48px
+}
+
+.create-page .back a {
+    text-decoration: none;
+    color: black;
+    font-size: 30px;
+}
+
+.create-box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-items: center;
+}
+
+.create-box .title {
+    width: 515px;
+    height: 50px;
+    background-color: #434242;
+    color: white;
+    border-radius: 10px;
+    margin-bottom: 20px;
+}
+
+.create-box textarea {
+    border: 2px solid black;
+    margin-bottom: 20px;
+}
+
+.create-box input::placeholder, .create-box textarea::placeholder {
+    padding-left: 10px;
+} 
+
+.create-box button {
+    position: relative;
+    left: 235px;
 }

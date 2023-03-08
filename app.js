@@ -29,11 +29,16 @@ app.get("/main", function(req, res) {
         res.render("main", {quotes: quotes, author: author} );
      });
 
+});
 
-
+app.get("/create", function(req, res) {
+    res.render("create");
 });
 
 
+app.get("/logout", function(req, res) {
+    res.redirect("/");
+});
 
 
 
