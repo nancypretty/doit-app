@@ -11,14 +11,19 @@
             <img src="/images/todo.png" alt="todo logo">
         </div>
         <div class="box">
-            <div class="list">
-                <input type="checkbox" name="checkbox" value="" onchange="">
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-            </div>
+               <% todoList.forEach(function(item) { %>
+                    <form action="/delete" method="POST">
+                        <div class="list">
+                            <input type="checkbox" name="checkbox" value="<%= item._id %>" onChange="this.form.submit()">
+                            <p> <%= item.content %> </p>
+                        </div>
+                    </form>
+                <% }); %>
+            
 
-            <form class="add" action="">
+            <form class="add" action="/main" method="POST">
                 <input class="newtodo" type="text" name="newTodo" placeholder="add your todo here">
-                <button class="btn btn-dark" type="submit" name="addTodo" value="">+</button>
+                <button class="btn btn-dark" type="submit">+</button>
             </form>
         </div>
     </div>

@@ -193,6 +193,10 @@ footer p {
     vertical-align: middle;
 }
 
+.box .list input:checked+p {
+    text-decoration: line-through;
+}
+
 .box .list p {
     margin: 0 0 0 10px;
     max-width: 430px;
@@ -210,6 +214,8 @@ footer p {
     width: 350px;
     height: 40px;
 }
+
+
 
 .todos-img, .notes-img {
     position: relative;
