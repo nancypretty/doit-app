@@ -31,7 +31,8 @@ mongoose.connect("mongodb://127.0.0.1:27017/doitDB");
 
 const userSchema = new mongoose.Schema ({
     username: String,
-    password: String
+    password: String,
+    googleId: String,
 });
 
 userSchema.plugin(passportLocalMongoose);
@@ -57,11 +58,13 @@ passport.use(new GoogleStrategy({
     callbackURL: "http://localhost:100/auth/google/main"
   },
   function(accessToken, refreshToken, profile, cb) {
-    User.findOrCreate({username: profile.emails[0].value, googleId: profile.id }, function (err, user) {
+    User.findOrCreate({username: profile.emails[0].value, googleId: profile.id}, function (err, user) {
       return cb(err, user);
     });
   }
 ));
+
+
 
 // Notes: "/" = Login Route
 
