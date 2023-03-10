@@ -287,12 +287,12 @@ footer p {
 
 .quotes {
     background-color: black;
-    width: 400px;
+    width: 900px;
     height: 200px;
     display: inline-block;
     position: absolute;
     top: 450px;
-    right: 595px;
+    right: 98px;
     border-radius: 20px;
     text-align: center;
 }
@@ -300,11 +300,11 @@ footer p {
 .quotes h4 {
     width: 90%;
     color: white;
-    font-size: 16px;
+    font-size: 20px;
     font-style: italic;
     position: relative;
     top: 30%;
-    margin-left: 20px;
+    margin-left: 50px;
 }
 
 .quotes h6 {
@@ -313,21 +313,8 @@ footer p {
     width: 90%;
     color: white;
     margin-left: 20px;
-    font-size: 12px;
+    font-size: 16px;
     font-weight: 300;
-}
-
-/* ------------------ Calendar ------------------- */
-
-.calendar {
-    background-color: grey;
-    width: 400px;
-    height: 200px;
-    display: inline-block;
-    position: absolute;
-    top: 450px;
-    right: 100px;
-    border-radius: 20px;
 }
 
 /**************** CREATE PAGE *************/
