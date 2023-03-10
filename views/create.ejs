@@ -8,11 +8,15 @@
     <div class="back">
         <a href="/main" role="button"><i class="fa-sharp fa-solid fa-circle-arrow-left"></i></a>
     </div>
-    <div class="create-box">
-        <input class="title" type="text" placeholder="Title">
-        <textarea name="" id="" cols="50" rows="12" placeholder="Add your notes here ..."></textarea>
-        <button class="btn btn-sm btn-outline-dark" type="submit">ADD</button>
-    </div>
+
+    <form action="/create" method="POST">
+        <div class="create-box">
+            <input class="title" name="title" type="text" placeholder="Title">
+            <textarea name="content" id="" cols="50" rows="12" placeholder="Add your notes here ..."></textarea>
+            <button class="btn btn-sm btn-outline-dark" type="submit">ADD</button>
+        </div>
+    </form>
+    
 </div>
 
 

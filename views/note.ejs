@@ -1,0 +1,26 @@
+<%- include('partials/header') %>
+
+
+<div class="note-page">
+    <div class="note-img">
+        <img src="/images/doit.png" alt="DoIT logo">
+    </div>
+    <div class="back">
+        <a href="/main" role="button"><i class="fa-sharp fa-solid fa-circle-arrow-left"></i></a>
+    </div>
+
+    <form action="/notes/<%= title %>" method="POST">
+        <div class="note-box">
+            <span class="title"><h1> <%= title %></h1></span>
+            <span class="content"><p> <%= content %></p></span>
+            <button class="btn btn-sm btn-outline-dark" name="noteId" value="<%= id %>" type="submit">DELETE</button>
+        </div>
+    </form>
+    
+</div>
+
+
+
+
+
+<%- include('partials/footer') %>

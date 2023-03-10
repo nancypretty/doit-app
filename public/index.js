@@ -4,3 +4,4 @@ $(document).ready(function() {
 });
 
 $(".flash").fadeOut(5000);
+$(".notes-flash").fadeOut(5000);

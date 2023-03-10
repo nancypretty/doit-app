@@ -28,18 +28,25 @@
         </div>
     </div>
 
-
+    <p class="notes-flash"> <%= message %> </p>
     <div class="notes">
         <div class="notes-img">
             <img src="/images/notes.png" alt="notes logo">
         </div>
         <a class="btn btn-dark" href="/create" role="button">+</a>
-        <div class="notes-list">
-            <h1>Lorem ipsum dolor</h1>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-            <h1>Lorem ipsum dolor</h1>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-        </div>
+
+        <% noteList.forEach(function(item) { %>
+            <div class="notes-list">
+                <a class="title" href="/notes/<%= item.title %>">
+                    <%= item.title.substring(0, 30)%>
+                </a>
+                <p>
+                    <%= item.content.substring(0, 80) + " ..." %>
+                    <a class="content" href="/notes/<%= item.title %>">Read More</a>
+                </p>
+            </div>
+        <%}); %>
+        
     </div>
 
 

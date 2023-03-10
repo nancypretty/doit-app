@@ -9,6 +9,7 @@ const session = require("express-session");
 const GoogleStrategy = require('passport-google-oauth20').Strategy;
 const findOrCreate = require('mongoose-findorcreate');
 const flash = require("req-flash");
+const _ = require("lodash");
 
 const app =  express();
 app.set("view engine", "ejs");
@@ -33,19 +34,25 @@ const todoSchema = new mongoose.Schema ({
     content: String
 });
 
+const noteSchema = new mongoose.Schema ({
+    title: String,
+    content: String
+});
+
 
 const userSchema = new mongoose.Schema ({
     username: String,
     password: String,
     googleId: String,
     todos: [todoSchema],
-    notes: []
+    notes: [noteSchema]
 });
 
 userSchema.plugin(passportLocalMongoose);
 userSchema.plugin(findOrCreate);
 
 const Todo = mongoose.model("Todo", todoSchema);
+const Note = mongoose.model("Note", noteSchema);
 const User = new mongoose.model("User", userSchema);
 
 
@@ -61,7 +68,7 @@ passport.deserializeUser(function(id, done) {
     });
   });
 
-  // --------- Google Authentication OAUTH20  ---------
+// --------- Google Authentication OAUTH20  ---------
 
 passport.use(new GoogleStrategy({
     clientID: process.env.CLIENT_ID,
@@ -134,7 +141,7 @@ app.route("/register")
 });
 
 
-// ************* MAIN ROUTE **********
+// ************* MAIN ROUTE/PAGE FUNCTION **********
 
 
 app.route("/main")
@@ -156,8 +163,9 @@ app.route("/main")
 
     if (req.isAuthenticated()) {
         User.findById(req.user.id, function(err, foundUser) {
-            const todoContent = foundUser.todos;
-            res.render("main", {quotes: quotes, author: author, todoList: todoContent} );
+            const todoContent = foundUser.todos; // finding todos list
+            const noteContent = foundUser.notes;
+            res.render("main", {quotes: quotes, author: author, todoList: todoContent, noteList: noteContent, message: req.flash('maxMessage')} );
         });
     } else {
         res.redirect("/");
@@ -176,8 +184,7 @@ app.route("/main")
     
 });
 
-// ************* MAIN ROUTE **********
-
+// Delete if checkbox in Todo-List got checked.
 app.post("/delete", function(req, res) {
     const checkedTodo = req.body.checkbox;
 
@@ -192,12 +199,71 @@ app.post("/delete", function(req, res) {
         });
 });
 
-// ************* OTHER ROUTE **********
+// Create new notes.
+app.route("/create")
+.get(function(req, res) {
 
-app.get("/create", function(req, res) {
-    res.render("create");
+    User.findById(req.user.id, function(err, foundUser) {
+        if (foundUser.notes.length === 3) {
+            req.flash('maxMessage', "Sorry, but you can only add 3 notes for now. :(");
+            res.redirect("/main");
+        } else {
+            res.render("create");
+        }
+    });
+})
+.post(function(req, res) {
+
+    const newNote = new Note ({
+        title: req.body.title,
+        content: req.body.content
+    });
+
+    User.findById(req.user.id, function(err, foundUser) {
+        foundUser.notes.push(newNote);
+        foundUser.save();
+        res.redirect("/main");
+    });
 });
 
+// Directing to a spesific note.
+app.route("/notes/:direct")
+.get(function(req, res) {
+    const noteRoute = _.lowerCase(req.params.direct);
+
+    User.findById(req.user.id, function(err, foundUser) {
+    const notes = foundUser.notes;
+
+    notes.forEach(note => {
+        const theTitle = _.lowerCase(note.title);
+
+        if (theTitle === noteRoute) {
+            res.render("note", {
+                title: note.title,
+                content: note.content,
+                id: note._id
+            });
+        };
+    });
+
+    });
+})
+.post(function(req, res) { // Deleting spesific note.
+    const deleteNote = req.body.noteId;
+
+    User.findByIdAndUpdate(req.user.id,
+        {$pull: {notes: {_id: deleteNote}}},
+        function(err, done) {
+            if (err) {
+                console.log(err);
+            } else {
+                res.redirect("/main");
+            };
+        });
+
+})
+
+// Logout
 app.get("/logout", function(req, res) {
     req.logout(function(err) {
         if (err) {
@@ -209,6 +275,7 @@ app.get("/logout", function(req, res) {
 });
 
 
+  // ----------------- Server Port ------------------
 
 app.listen(100, function (req, res) {
     console.log("Server is running on port 100!");

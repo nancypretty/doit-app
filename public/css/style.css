@@ -237,7 +237,17 @@ footer p {
     max-height: 300px;
 }
 
-.notes a {
+.notes-flash {
+    color: #F55050;
+    font-size: 12px;
+    font-weight: 900;
+    position: absolute;
+    top: 40px;
+    right: 120px;
+    z-index: 10;
+}
+
+.notes .btn {
     position: relative;
     left: 830px;
     bottom: 70px;
@@ -250,14 +260,27 @@ footer p {
     bottom: 60px;
 }
 
-.notes-list h1 {
+.notes-list .title {
+    text-decoration: none;
+    color: black;
     font-size: 16px;
     font-weight: 700;
+    padding-bottom: 10px;
 }
 
 .notes-list p {
     font-size: 14px;
     margin-bottom: 20px;
+    text-align: justify;
+}
+
+.notes-list .content {
+    color: grey;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 14px;
+    margin-bottom: 20px;
+    text-align: justify;
 }
 
 /* ------------------ Quotes ------------------- */
@@ -309,10 +332,10 @@ footer p {
 
 /**************** CREATE PAGE *************/
 
-.create-page {
+.create-page, .note-page {
     display: flex;
     flex-direction: column;
-    height: 700px;
+    min-height: 700px;
     width: 95%;
     border: 2px solid black;
     margin: 50px 0 20px 42px;
@@ -320,25 +343,25 @@ footer p {
     align-items: center;
 }
 
-.create-img {
+.create-img, .note-img {
     position: absolute;
     left: 150px;
     top: 10px;
 }
 
-.create-page .back {
+.create-page .back, .note-page .back {
     position: relative;
     right: 300px;
     top: 48px
 }
 
-.create-page .back a {
+.create-page .back a, .note-page .back a {
     text-decoration: none;
     color: black;
     font-size: 30px;
 }
 
-.create-box {
+.create-box, .note-box {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -366,4 +389,41 @@ footer p {
 .create-box button {
     position: relative;
     left: 235px;
+}
+
+/**************** NOTE PAGE *************/
+
+.note-box .title {
+    width: 515px;
+    min-height: 40px;
+    background-color: #434242;
+    color: white;
+    border-radius: 10px;
+    margin-bottom: 20px;
+}
+
+.note-box h1 {
+    margin-bottom: 15px;
+    font-size: 20px;
+    position: relative;
+    top: 10px;
+    left: 10px;
+}
+
+.note-box .content {
+    width: 515px;
+    min-height: 300px;
+    border: 2px solid black;
+    margin-bottom: 20px;
+    padding: 10px;
+}
+
+.note-box p {
+    margin: 0;
+}
+
+.note-box button {
+    position: relative;
+    left: 223px;
+    margin-bottom: 50px;
 }
